@@ -1,0 +1,29 @@
+import string
+
+def sezar(text, shuffle, alfas):
+
+    def shuffle_alphabet(alfabe):
+        return alfabe[shuffle:] + alfabe[:shuffle]
+
+    def shuffle_numbers():
+        numbs = [1,2,3,4,5,6,7,8,9,0]
+        return numbs[shuffle:]
+
+    shuffled_alphabets = tuple(map(shuffle_alphabet, alfas))
+    last_shuffled_alpha = ''.join(shuffled_alphabets)
+    last_alpha = ''.join(alfas)
+    table = str.maketrans(last_alpha, last_shuffled_alpha)
+    return text.translate(table)
+
+plain_text = input("Sezar şifrelemesi uygulamak istediğiniz yazıyı yazınız: ")
+string_maker = [string.ascii_uppercase, string.ascii_lowercase, string.punctuation]
+satir_kaydir = int(input("Kaydirmak istediginiz satir sayisini yazin: "))
+
+
+direct_caesar = (sezar(plain_text, satir_kaydir, string_maker))
+reversal_caesar_ask = input("Yaziyi decryptleyelim mi? Y/N : ")
+if(reversal_caesar_ask == "Y" or "y"):
+    reversal_caesar = (sezar(direct_caesar, -satir_kaydir, string_maker))
+    print("Şifrelenen yazı:"+ direct_caesar+'\n'+"Geri dönüştürülen yazı: "+reversal_caesar)
+else:
+    print("Şifrelenen yazı:"+direct_caesar)
