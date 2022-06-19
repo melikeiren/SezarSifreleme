@@ -1,6 +1,6 @@
 # SezarSifreleme
 1- ‘git config’
-‘git config’; kullanıcı adı, mail, dosya formatları gibi genel yapılandırma ayarlarını yapacağınız komuttur.
+Kullanıcı adı, mail, dosya formatları gibi genel yapılandırma ayarlarını yapacağınız komuttur.
 
 2- ‘git init’
 git 
